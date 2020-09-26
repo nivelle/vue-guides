@@ -1,7 +1,5 @@
 # 非前端程序员的VUE教程
 
-## 该项目和 [javaGuides](https://github.com/nivelle/javaGuides)项目可搭配使用
-
 ### 项目初始化(本项目使用idel初始化,使用自定义的运行环境)
 
 ```
