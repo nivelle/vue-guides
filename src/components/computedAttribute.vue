@@ -22,37 +22,38 @@
 </template>
 
 <script>
-export default {
-  name: "ConditionalRendering",
-  //计算属性,复杂的双括号属性计算
-  computed: {
-    //需要计算属性的getter方法，依赖的值this.msg没有改变,会将计算后的值进行缓存,如果不希望缓存则改造为方法
-    reverseMsg: function () {
-      return this.msg.split('').reverse().join('')
-    }
-  },
+  export default {
+    name: "ConditionalRendering",
+    //计算属性,复杂的双括号属性计算
+    computed: {
+      //需要计算属性的getter方法，依赖的值this.msg没有改变,会将计算后的值进行缓存,如果不希望缓存则改造为方法
+      //reverseMsg  不可在data里面定义
+      reverseMsg: function () {
+        return this.msg.split('').reverse().join('')
+      }
+    },
 
-  data() {
-    return {
-      msg: '对于需要复杂计算的双括号变量,需要使用计算属性',
-      reverseMsg2: "hello"
-    }
-  }
-  ,
-  //侦听方式
-  watch: {
-    //msg的侦听方法
-    msg: function () {
-      this.reverseMsg2 = this.reverseMsg2.split('').reverse().join('')
-    }
-  },
-  methods: {
-    changeContent() {
-      this.msg = this.msg.split('').reverse().join('');
+    data() {
+      return {
+        msg: '123',//对于需要复杂计算的双括号变量,需要使用计算属性
+        reverseMsg2: "hello"
+      }
     }
     ,
+    //侦听方式
+    watch: {
+      //msg的侦听方法
+      msg: function () {
+        this.reverseMsg2 = this.reverseMsg2.split('').reverse().join('')
+      }
+    },
+    methods: {
+      changeContent() {
+        this.msg = this.msg.split('').reverse().join('');
+      }
+      ,
+    }
   }
-}
 </script>
 
 <style scoped>
